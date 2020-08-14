@@ -89,7 +89,7 @@ class Student
       LIMIT ?
     SQL
 
-    DB[:conn].execute(sql).collect do |row|
+    DB[:conn].execute(sql,num).collect do |row|
       self.new_from_db(row)
     end
     
@@ -112,7 +112,7 @@ class Student
       WHERE grade = ? 
     SQL
 
-    DB[:conn].execute(sql).collect do |row|
+    DB[:conn].execute(sql,name).collect do |row|
       self.new_from_db(row)
     end
     
